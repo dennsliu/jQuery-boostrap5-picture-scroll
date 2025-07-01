@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三波峰弧形连接的三个div</title>
+    <style>
+      body {
+        margin: 20px;
+        padding: 0;
+      }
+
+      #team,
+      #member,
+      #goods {
+        height: 500px;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        position: relative;
+      }
+
+      #team {
+        background-color: #3498db;
+      }
+
+      #member {
+        background-color: #2ecc71;
+      }
+
+      #goods {
+        background-color: #e74c3c;
+      }
+
+      .arc-connector {
+        position: absolute;
+        width: 600px;
+        height: 60px;
+        z-index: 10;
+        left: 0;
+      }
+
+      #arc1 {
+        bottom: 0px; /* 位于team下方 */
+      }
+
+      #arc2 {
+        bottom: 0px; /* 位于member下方 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="team">
+      team
+      <!-- 第一个弧形：三波峰设计，连接team和member -->
+      <svg
+        class="arc-connector"
+        id="arc1"
+        viewBox="0 0 600 60"
+        preserveAspectRatio="none"
+      >
+        <path d="M0,0 Q50,15 100,0 T200,0 T300,0" fill="#2ecc71" />
+      </svg>
+    </div>
+
+    <div id="member">
+      member
+      <!-- 第二个弧形：向上凸，连接member和goods -->
+      <svg
+        class="arc-connector"
+        id="arc2"
+        viewBox="0 0 600 60"
+        preserveAspectRatio="none"
+      >
+        <path id="arc2-path" fill="#e74c3c" />
+      </svg>
+    </div>
+
+    <div id="goods">goods</div>
+    <p>-----</p>
+    <p>-----</p>
+    <svg class="absolute bottom-0 left-0" width="2498" height="1184" viewBox="0 0 2498 1184">
+      <clippath id="6801812b9abff05a1e060b33-waveLeft">
+        <rect width="2498" height="1032" fill="transparent"></rect>
+        <path d="M0 0C0 0 505.34540000000004 152 832.5834 152C1169.3138000000001 152 1328.4364 0 1665.4165999999998 0C2002.147 0 2498 152 2498 152V0H0Z" transform="translate(0, 1032)" fill="transparent"></path>
+      </clippath>
+    </svg>
+    <script>
+      function getPathSlantLeft(t, n) {
+        return "M".concat(t, " 0L-0 ").concat(n);
+      }
+
+      function getPathSlantRight(t, n) {
+        return "M0 0L".concat(t, " ").concat(n);
+      }
+      function getPathPointUp(t, n) {
+        return "M0 0"
+          .concat(n, "L")
+          .concat(t / 2, " 0L")
+          .concat(t, " ")
+          .concat(n, "L")
+          .concat(1.5 * t, " 0V0");
+      }
+
+      function getPathPointDown(t, n) {
+        return "M0 0L"
+          .concat(t / 2, " ")
+          .concat(n, "L")
+          .concat(t, " 0");
+      }
+
+      function getPathCurveUp(t, n) {
+        return "M0 0 C"
+          .concat(t / 2, " ")
+          .concat(n, " ")
+          .concat(t - t / 2, " ")
+          .concat(n, " ")
+          .concat(t, " 0");
+      }
+
+      function getPathCurveDown(t, n) {
+        return "M0 "
+          .concat(n, " C")
+          .concat(t / 2, " 0 ")
+          .concat(t - t / 2, " 0 ")
+          .concat(t, " ")
+          .concat(n);
+      }
+      function getPathWaveLeft(t, n) {
+        return "M0 0C0 0 "
+          .concat(0.2023 * t, " ")
+          .concat(n, " ")
+          .concat(0.3333 * t, " ")
+          .concat(n, "C")
+          .concat(0.4681 * t, " ")
+          .concat(n, " ")
+          .concat(0.5318 * t, " 0 ")
+          .concat(0.6667 * t, " 0C")
+          .concat(0.8015 * t, " 0 ")
+          .concat(t, " ")
+          .concat(n, " ")
+          .concat(t, " ")
+          .concat(n);
+      }
+
+      function getPathWaveRight(t, n) {
+        return "M"
+          .concat(t, " 0C")
+          .concat(t, " 0 ")
+          .concat(0.8 * t, " ")
+          .concat(n, " ")
+          .concat(0.666 * t, " ")
+          .concat(n, "C")
+          .concat(0.547 * t, " ")
+          .concat(n, " ")
+          .concat(0.483 * t, " 0 ")
+          .concat(0.333 * t, " 0C")
+          .concat(0.184 * t, " 0 -0.00012207 ")
+          .concat(n, " -0.00012207 ")
+          .concat(n);
+      }
+
+      function getPathJaggedLeft(t, n) {
+        return "M0 0L"
+          .concat(t / 3, " ")
+          .concat(n, "L")
+          .concat(t / 1.5, " 0L")
+          .concat(t, " ")
+          .concat(n);
+      }
+      function getPathJaggedRight(t, n) {
+        return "M"
+          .concat(t, " 0L")
+          .concat(t / 1.5, " ")
+          .concat(n, "L")
+          .concat(t / 3, " 0L0 ")
+          .concat(n);
+      }
+      function getPathSwoopLeft(t, n) {
+        return "M0 "
+          .concat(n, "C")
+          .concat(t, " 0 ")
+          .concat(2 * t, " 0 ")
+          .concat(2 * t, " 0");
+      }
+      function getPathSwoopRight(t, n) {
+        return "M"
+          .concat(t, " ")
+          .concat(n, "C")
+          .concat(t / 2, " 0 0 0 0 0");
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const arc2 = document.getElementById('arc2');
+        const arc2Path = document.getElementById('arc2-path');
+        const viewBox = arc2.getAttribute('viewBox').split(' ');
+        const width = parseFloat(viewBox[2]);
+        const height = parseFloat(viewBox[3]);
+        console.log(width, height);
+        arc2Path.setAttribute('d', getPathWaveLeft(width, height));
+      });
+    </script>
+  </body>
+</html>
