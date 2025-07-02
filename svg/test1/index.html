@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弧形连接的三个div</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 {
+            background: linear-gradient(lightblue, orange);
+            height: 100vh;
+        }
+
+        .div2 {
+            margin-top: -150px;
+            background: aqua;
+            height: 100VH;
+            clip-path: url(#wave);
+            color: red;
+            padding-top: 300px;
+        }
+
+        .ellipse {
+  clip-path: ellipse(200px 500px at 50% 50%);
+
+  &:active {
+    clip-path: ellipse(500px 500px at 50% 50%);
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        224323423423
+    </div>
+    <div class="div2">
+        <p>223423423423</p>
+
+        <h2>Ellipse (click)</h2>
+        <div class="img-box">
+            <img class="img ellipse" src="./img/whales-2.jpg" alt=""/>
+        </div>
+    </div>
+    <svg>
+        <clipPath id="wave" clipPathUnits="objectBoundingBox">
+            <path class="st0" d="M1,0c0,0-0.3,0.1-0.5,0.1S0.3,0,0,0.1V1h1L1,0z" />
+        </clipPath>
+    </svg>
+
+
+    </svg>
+</body>
+
+</html>
