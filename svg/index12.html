@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>----</title>
+  <style>
+    body {
+      background: #333;
+    }
+
+    @keyframes l5 {
+      0% {
+        box-shadow: 12px 0 #020e07, -12px 0 #020e0729;
+        background: #020e07;
+      }
+
+      33% {
+        box-shadow: 12px 0 #020e07, -12px 0 #020e0729;
+        background: #020e0729;
+      }
+
+      66% {
+        box-shadow: 12px 0 #020e0729, -12px 0 #020e07;
+        background: #020e0729;
+      }
+
+      100% {
+        box-shadow: 12px 0 #020e0729, -12px 0 #020e07;
+        background: #020e07;
+      }
+    }
+
+    @keyframes wave {
+      0% {
+        transform: translate(-90px, 0%);
+      }
+
+      100% {
+        transform: translate(85px, 0%);
+      }
+    }
+
+    @keyframes wave2 {
+      0% {
+        transform: translate(90px, 0%);
+      }
+
+      100% {
+        transform: translate(-85px, 0%);
+      }
+    }
+
+    .waveBox {
+      display: block;
+      width: 100%;
+      height: 160px;
+      max-height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <section style="position: relative;margin-top: 3rem;padding-bottom: 3rem;;">
+    <div class="absolute top-[-160px] left-0 w-full h-[160px]"><svg class="waveBox" viewBox="0 24 150 28"
+        preserveAspectRatio="none">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-10 88-10s58 10 88 10 58-10 88-10 58 10 88 10 v44h-352z"></path>
+        </defs>
+        <g>
+          <use xlink:href="#gentle-wave" x="50" y="0" fill="#ffffff"
+            style="animation: 5s linear 0s infinite normal none running wave2;"></use>
+        </g>
+      </svg></div>
+    <div class="wrap">
+      <div class="text-center capitalize max-w-[1000px] mx-auto">
+        <div class="leading-[1.2] text-[22px] md:text-[32px] font-bold ">======</div>
+        <div class="leading-[1.2] text-[48px] md:text-[64px] font-bold ">0-0-0-0</div>
+        <div class="leading-[1.2] text-[18px] font-normal ">
+          
+79789789789
+
+
+        </div>
+      </div>
+    </div>
+    <div class="mt-[16px] md:mt-[24px] relative wrap">
+      <div class="swiper-button-prev scroll-swiper-button-prev "
+        style="width: 48px; height: 48px; opacity: 0.3; cursor: default;"></div>
+      <div class="swiper-button-next scroll-swiper-button-next "
+        style="width: 48px; height: 48px; opacity: 1; cursor: pointer;"></div>
+
+
+
+      =====
+
+
+      ---
+    </div>
+  </section>
+
+</body>
+
+</html>

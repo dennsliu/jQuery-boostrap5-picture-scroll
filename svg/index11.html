@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>----</title>
+  <style>
+    body {
+      background: #333;
+    }
+
+    @keyframes l5 {
+      0% {
+        box-shadow: 12px 0 #020e07, -12px 0 #020e0729;
+        background: #020e07;
+      }
+
+      33% {
+        box-shadow: 12px 0 #020e07, -12px 0 #020e0729;
+        background: #020e0729;
+      }
+
+      66% {
+        box-shadow: 12px 0 #020e0729, -12px 0 #020e07;
+        background: #020e0729;
+      }
+
+      100% {
+        box-shadow: 12px 0 #020e0729, -12px 0 #020e07;
+        background: #020e07;
+      }
+    }
+
+    @keyframes wave {
+      0% {
+        transform: translate(-90px, 0%);
+      }
+
+      100% {
+        transform: translate(85px, 0%);
+      }
+    }
+
+    @keyframes wave2 {
+      0% {
+        transform: translate(90px, 0%);
+      }
+
+      100% {
+        transform: translate(-85px, 0%);
+      }
+    }
+
+    .waveBox {
+      display: block;
+      width: 100%;
+      height: 160px;
+      max-height: 100vh;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <section class="pt-[96px] pb-[150px] mb-[190px] text-white bg-primary relative">
+    <div class="absolute bottom-[-160px] left-0 w-full h-[160px]" style="transform: scaleY(-1);">
+      <svg class="waveBox" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-10 88-10s58 10 88 10 58-10 88-10 58 10 88 10 v44h-352z"></path>
+        </defs>
+        <g>
+          <use xlink:href="#gentle-wave" x="50" y="0" fill="#095D2C"
+            style="animation: 8s linear 0s infinite normal none running wave;"></use>
+        </g>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="flex flex-col max-w-[1000px] mx-auto text-center">
+        <div class="leading-[1.2] text-[22px] md:text-[32px] font-bold capitalize">798968678768---</div>
+        <div class="leading-[1.2] text-[48px] md:text-[64px] font-bold capitalize">87687857567</div>
+        <div class="leading-[1.2] text-[18px] font-normal mt-[12px]">
+          980890-----
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>
